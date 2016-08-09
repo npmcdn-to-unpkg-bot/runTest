@@ -1,5 +1,4 @@
 import { Component } from 'angular2/core';
-import leaflet from 'leaflet';
 
 @Component({
   selector: 'my-app',
