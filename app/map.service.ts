@@ -17,7 +17,6 @@ export class MapService {
 
   disableMouseEvent(tag: string) {
     var html = L.DomUtil.get(tag);
-
     L.DomEvent.disableClickPropagation(html);
     L.DomEvent.on(html, 'mousewheel', L.DomEvent.stopPropagation);
   };

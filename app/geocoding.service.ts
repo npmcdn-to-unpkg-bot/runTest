@@ -51,6 +51,7 @@ export class GeocodingService {
       location.latitude = result.latitude;
       location.longitude = result.longitude;
 
+      console.log(location);
       return location;
     });
   }

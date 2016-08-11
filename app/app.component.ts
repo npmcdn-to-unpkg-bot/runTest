@@ -1,20 +1,7 @@
-// import { Component } from 'angular2/core';
-//
-// @Component({
-//   selector: 'app',
-//   template: `
-//     <h1>Frame My Run</h1>
-//   `
-// })
-//
-// export class AppComponent {
-//
-// }
-
-
 import {Component, ViewChild} from 'angular2/core';
 import {MapService} from './map.service';
 import {GeocodingService} from './geocoding.service';
+import {MarkerComponent} from './marker.component';
 import {Location} from './location.model';
 
 @Component({
@@ -24,6 +11,8 @@ import {Location} from './location.model';
 export class AppComponent {
   private mapService: MapService;
   private geocoder: GeocodingService;
+
+  @ViewChild(MarkerComponent) markerComponent:MarkerComponent;
 
   constructor(mapService: MapService, geocoder: GeocodingService) {
     this.mapService = mapService;
@@ -52,4 +41,8 @@ export class AppComponent {
       err => console.error(err)
     );
   }
+
+  ngAfterViewInit() {
+        this.markerComponent.Initialize();
+    }
 }
