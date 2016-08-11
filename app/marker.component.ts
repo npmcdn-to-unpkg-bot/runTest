@@ -7,12 +7,15 @@ import {Map, LeafletMouseEvent, Marker} from 'leaflet';
     selector: 'marker',
     directives: [CORE_DIRECTIVES],
     template: `
-      <input id="place-input" class="on-map" type="text" placeholder="Enter a place to go..."
-        [(ngModel)]="address" (keyup.enter)="goto()">
+    <button id="add-marker" class="btn btn-default on-map" [ngClass]="{'btn-default': !editing, 'btn-primary': editing}"
+        title="Add Marker" (click)="toggleEditing()" btnCheckbox>
+      <i class="fa fa-map-marker fa"></i>
+    </button>
 
-      <button id="goto" class="btn btn-primary on-map" href="#" title="Goto Place" (click)="goto()">
-        <i class="fa fa-arrow-right fa"></i>
-      </button>
+    <button id="remove-marker" class="btn on-map" [ngClass]="{'btn-default': !removing, 'btn-primary': removing}"
+          title="Remove Marker" (click)="toggleRemoving()" btnCheckbox>
+      <i class="fa fa-trash fa"></i>
+    </button>
     `
 })
 export class MarkerComponent {

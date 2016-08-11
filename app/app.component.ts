@@ -6,7 +6,18 @@ import {Location} from './location.model';
 
 @Component({
     selector: 'app',
-    template: '<div id="map"></div>'
+    directives: [MarkerComponent],
+    template: `
+    <nav class="navbar nav-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="#" scroll-to="welcome" offset="50"><span>Run</span></a>
+      </div>
+    </nav>
+
+    <div id="map">
+      <marker></marker>
+    </div>
+    `
 })
 export class AppComponent {
   private mapService: MapService;
